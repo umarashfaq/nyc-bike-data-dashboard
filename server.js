@@ -1,6 +1,12 @@
-const path = require('path')
-const express = require('express')
-import { isProduction, isTest, getPort, setupWebpack } from './server/utils/appUtils'
+
+// src
+import defaultController from './server/controllers/defaultController'
+import stationAPIController from './server/controllers/api/stationAPIController'
+import { isProduction, isTest, getPort, setupWebpack } from './server/utils'
+
+// libs
+import path from 'path'
+import express from 'express'
 import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
 import helmet from 'helmet'
@@ -34,8 +40,8 @@ app.use(helmet())
 app.set('views', path.join(__dirname, 'views'));
 
 // Include server routes as a middleware
-app.use((req, res, next) => {require('./server/controllers/defaultController')(req, res, next);});
-app.use((req, res, next) => {require('./server/controllers/api/stationApiController')(req, res, next);});
+app.use((req, res, next) => defaultController(req, res, next))
+app.use((req, res, next) => stationAPIController(req, res, next))
 
 //generic error handler
 app.use((err, req, res, next) => {  

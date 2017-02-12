@@ -1,15 +1,16 @@
+// src
+import { handleError } from '../../utils'
+import stationManager from '../../managers/stationManager'
+
+// libs
 import express from 'express'
-import errorUtils from './../../utils/errorUtils'
+
 const router = express.Router()
 
 router.get('/api/stations/', (req, res) => {  
-  activityManager.findAll()
-  .then((resp) => {
-    res.send(resp);
-  })
-  .catch((error) => {
-    return errorUtils.caughtError(res, error);
-  });
-});
+  stationManager.fetchStationData()
+    .then(data => res.send(data))
+    .catch(error => handleError(res, error))
+})
 
-export default router;
+export default router

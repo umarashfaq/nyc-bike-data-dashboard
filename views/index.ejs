@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>GivingAt.work - Home</title>
-    <meta name="description" content="just another react + webpack boilerplate">
+    <title>Real-time Dashboard for NYC Bike Sharing Data</title>
+    <meta name="description" content="Real-time Dashboard for NYC Bike Sharing Data">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style media="screen">
@@ -43,8 +43,7 @@
     </div>
     <script type="text/javascript">
       window.GAW = {
-        preloadedState: {
-        }
+        preloadedState: <%- JSON.stringify(preloadedState) %>
       };
     </script>
     <script>
@@ -61,6 +60,6 @@
       s.parentNode.insertBefore(wf, s);
     })();
     </script>
-    <script src="/login.js"></script>
+    <script src="/main.js"></script>
   </body>
 </html>
