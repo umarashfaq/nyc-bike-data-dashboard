@@ -1,34 +1,35 @@
 import { CALL_API } from '../../middleware/api'
 
-/*
-export const ACTIVITY_FETCH_ALL = 'ACTIVITY_FETCH_ALL'
-export const ACTIVITY_FETCH_ALL_SUCCESS = 'ACTIVITY_FETCH_ALL_SUCCESS'
-export const ACTIVITY_FETCH_ALL_FAILURE = 'ACTIVITY_FETCH_ALL_FAILURE'
+export const STATION_FETCH_STATUS = 'STATION_FETCH_STATUS'
+export const STATION_FETCH_STATUS_SUCCESS = 'STATION_FETCH_STATUS_SUCCESS'
+export const STATION_FETCH_STATUS_FAILURE = 'STATION_FETCH_STATUS_FAILURE'
 
-function callApiFetchAllActivities() {
+function fetchStationStatus() {
+  // console.log('Fetching station status ...')
   return {
     [CALL_API]: {
       types: [
-        ACTIVITY_FETCH_ALL,
-        ACTIVITY_FETCH_ALL_SUCCESS,
-        ACTIVITY_FETCH_ALL_FAILURE
+        STATION_FETCH_STATUS,
+        STATION_FETCH_STATUS_SUCCESS,
+        STATION_FETCH_STATUS_FAILURE
       ],
-      endpoint: `/api/activities`
+      endpoint: `/api/stations/bikes`
     }
   }
 }
 
-export function fetchAllActivities() {
-  return (dispatch, getState) => {
-    const {entities: {
-      activities
-    }} = getState()
-    
-    if (Object.keys(activities).length) {
-      return null
-    } else {
-      return dispatch(callApiFetchAllActivities())
-    }
+let isPolling = false
+const POLLING_DELAY = 60000
+export function initiateStatusPolling() {
+  if (isPolling) {
+    return () => {}
+  }
+  
+  // console.log('Initiating status polling ...')
+  isPolling = true
+  
+  return dispatch => {
+    dispatch(fetchStationStatus())
+    setInterval(() => dispatch(fetchStationStatus()), POLLING_DELAY)
   }
 }
-*/

@@ -1,6 +1,6 @@
 // src
 import QueryFormInner from './QueryFormInner'
-import {filterRenderedStations, resetRenderedStations} from '../../actions'
+import {filterRenderedStations, resetRenderedStations, initiateStatusPolling} from '../../actions'
 
 // libs
 import React from 'react'
@@ -14,6 +14,9 @@ class QueryForm extends React.Component {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleClickResetFilter = this.handleClickResetFilter.bind(this)
+    
+    const {initiateStatusPolling} = props
+    initiateStatusPolling()
   }
   handleSubmit({station_id, distance}) {
     if (!station_id || !distance) {
@@ -54,4 +57,4 @@ const mapStateToProps = state => {
 export default reduxForm({
   form: 'queryForm',
   fields
-}, mapStateToProps, {filterRenderedStations, resetRenderedStations})(QueryForm)
+}, mapStateToProps, {filterRenderedStations, resetRenderedStations, initiateStatusPolling})(QueryForm)

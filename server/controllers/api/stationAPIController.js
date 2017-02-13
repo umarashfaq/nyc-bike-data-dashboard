@@ -13,4 +13,10 @@ router.get('/api/stations/', (req, res) => {
     .catch(error => handleError(res, error))
 })
 
+router.get('/api/stations/bikes', (req, res) => {  
+  stationManager.fetchBikeData()
+    .then(data => res.send(data))
+    .catch(error => handleError(res, error))
+})
+
 export default router
