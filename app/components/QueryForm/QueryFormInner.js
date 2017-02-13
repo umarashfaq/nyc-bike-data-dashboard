@@ -14,7 +14,7 @@ const renderFilterInfo = props => {
   
   return <Paper>
     <div className={styles.container}>
-      <h2>{items.length} stations are found in {distance} kilometers radius of {anchor.name}</h2>
+      <p><strong>{items.length}</strong> stations are located in <strong>{distance}</strong> kilometers radius of <strong>{anchor.name}</strong></p>
       <a href="#" onClick={onClickResetFilter}>Reset filter</a>
     </div>
   </Paper>
@@ -31,6 +31,7 @@ const renderForm = props => {
       <h2>Filter Stations</h2>
       <label>Station</label><br/>
       <select {...station_id} disabled={submitting}>
+        <option value={null}>Select a value</option>
         {stations.map(({station_id, name}) => <option key={station_id} value={station_id}>{name}</option>)}
       </select>
       <TextField floatingLabelText="Distance (in kilometers)" fullWidth {...distance} disabled={submitting}/>
