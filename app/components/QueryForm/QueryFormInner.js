@@ -9,7 +9,18 @@ import MenuItem from 'material-ui/MenuItem'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
-const QueryFormInner = props => {
+const renderFilterInfo = props => {
+  const {query: {distance}, items, anchor, onClickResetFilter} = props
+  
+  return <Paper>
+    <div className={styles.container}>
+      <h2>{items.length} stations are found in {distance} kilometers radius of {anchor.name}</h2>
+      <a href="#" onClick={onClickResetFilter}>Reset filter</a>
+    </div>
+  </Paper>
+}
+
+const renderForm = props => {
   const {stations, fields: {
     station_id, distance
   }, handleSubmit, onSubmit, submitting} = props
@@ -26,6 +37,12 @@ const QueryFormInner = props => {
       <RaisedButton label="Apply Filter" primary disabled={submitting} onClick={fnSubmit}/>
     </form>
   </Paper>
+}
+
+const QueryFormInner = props => {
+  const {isFilterApplied} = props
+  
+  return isFilterApplied ? renderFilterInfo(props) : renderForm(props)
 }
 
 export default QueryFormInner
