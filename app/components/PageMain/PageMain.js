@@ -5,6 +5,7 @@ import MUITheme from '../../../config/theme'
 import Page from '../Page/Page'
 import MapView from '../MapView/MapView'
 import QueryForm from '../QueryForm/QueryForm'
+import CurrentUsageView from '../CurrentUsageView/CurrentUsageView'
 
 // libs
 import React from 'react'
@@ -29,10 +30,24 @@ export default class PageMain extends Page {
             </div>
             <div className="row">
               <div className="col-lg-8">
-                <MapView markers={[]}/>
+                <MapView />
               </div>
               <div className="col-lg-4">
                 <QueryForm />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-lg-8">
+                <CurrentUsageView />
+              </div>
+              <div className="col-lg-4">
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-lg-8">
+                <CurrentUsageView />
+              </div>
+              <div className="col-lg-4">
               </div>
             </div>
           </div>

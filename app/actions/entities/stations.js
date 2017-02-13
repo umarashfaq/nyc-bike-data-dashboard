@@ -6,15 +6,20 @@ export const STATION_FETCH_STATUS_FAILURE = 'STATION_FETCH_STATUS_FAILURE'
 
 function fetchStationStatus() {
   // console.log('Fetching station status ...')
-  return {
-    [CALL_API]: {
-      types: [
-        STATION_FETCH_STATUS,
-        STATION_FETCH_STATUS_SUCCESS,
-        STATION_FETCH_STATUS_FAILURE
-      ],
-      endpoint: `/api/stations/bikes`
-    }
+  return (dispatch, getState) => {
+    const {stations} = getState().entities
+    
+    return dispatch({
+      [CALL_API]: {
+        types: [
+          STATION_FETCH_STATUS,
+          STATION_FETCH_STATUS_SUCCESS,
+          STATION_FETCH_STATUS_FAILURE
+        ],
+        endpoint: `/api/stations/bikes`
+      },
+      meta: {stations}
+    })
   }
 }
 
