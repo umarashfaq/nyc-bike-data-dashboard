@@ -1,6 +1,7 @@
 // src
 import * as ActionTypes from '../actions'
 import entities from './entities'
+import lists from './lists'
 
 // libs
 import { combineReducers } from 'redux'
@@ -22,6 +23,7 @@ function errorMessage(state = null, action) {
 
 const rootReducer = combineReducers({
   entities,
+  lists,
   form: formReducer,
   errorMessage,
   routing

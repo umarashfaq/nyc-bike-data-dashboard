@@ -13,10 +13,17 @@ router.get('/', (req, res) => {
       stationInfo.data.stations.forEach(item => stations[item.station_id] = item) 
       stationStatus.data.stations.forEach(item => Object.assign(stations[item.station_id], item))
       
+      const renderedStationItems = stationInfo.data.stations.map(item => item.station_id)
+      
       res.render('index', {
         preloadedState: {
           entities: {
             stations
+          },
+          lists: {
+            renderedStations: {
+              items: renderedStationItems
+            }
           }
         }
       })

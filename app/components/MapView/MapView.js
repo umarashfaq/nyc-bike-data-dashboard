@@ -41,9 +41,9 @@ MapView.defaultProps = {
 }
 
 const mapStateToProps = state => {
-  const {entities: {stations}} = state
+  const {entities: {stations}, lists: {renderedStations}} = state
   return {
-    stations: Object.values(stations)
+    stations: renderedStations.items.map(id => stations[id])
   }
 }
 

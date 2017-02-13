@@ -4,6 +4,7 @@ import globalStyles from '../common.less'
 import MUITheme from '../../../config/theme'
 import Page from '../Page/Page'
 import MapView from '../MapView/MapView'
+import QueryForm from '../QueryForm/QueryForm'
 
 // libs
 import React from 'react'
@@ -20,7 +21,21 @@ export default class PageMain extends Page {
     return (
       <Provider store={store}>
         <div className={styles.root}>
-          <MapView markers={[]}/>
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12">
+                <h1>Real-time NYC Bike Sharing Data Dashboard</h1>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-lg-8">
+                <MapView markers={[]}/>
+              </div>
+              <div className="col-lg-4">
+                <QueryForm />
+              </div>
+            </div>
+          </div>
         </div>
       </Provider>
     )
