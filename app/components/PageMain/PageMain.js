@@ -6,6 +6,7 @@ import Page from '../Page/Page'
 import MapView from '../MapView/MapView'
 import QueryForm from '../QueryForm/QueryForm'
 import CurrentUsageView from '../CurrentUsageView/CurrentUsageView'
+import HistoricalUsageView from '../HistoricalUsageView/HistoricalUsageView'
 
 // libs
 import React from 'react'
@@ -45,7 +46,7 @@ export default class PageMain extends Page {
             </div>
             <div className="row">
               <div className="col-lg-8">
-                <CurrentUsageView />
+                <HistoricalUsageView />
               </div>
               <div className="col-lg-4">
               </div>

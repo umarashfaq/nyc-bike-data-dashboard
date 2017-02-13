@@ -19,7 +19,10 @@ class CurrentUsageView extends React.Component {
   }
   componentWillReceiveProps(nextProps) {
     const {currentUsageGlobal} = nextProps
-    this.setState(currentUsageGlobal)
+    
+    if (this.state.selectedStation < 0) {
+      this.setState(currentUsageGlobal)
+    }
   }
   handleChangeSelectedStation(e) {
     const {stations, currentUsageGlobal} = this.props
