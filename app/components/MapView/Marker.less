@@ -1,0 +1,56 @@
+@K_WIDTH: 10px;
+@K_HEIGHT: 10px;
+@COLOR_GREEN: #85f768;
+@COLOR_ORANGE: orange;
+@COLOR_RED: red;
+
+.root {
+  // initially any map object has left top corner at lat lng coordinates
+  // it's on you to set object origin to 0,0 coordinates
+  position: absolute;
+  width: @K_WIDTH;
+  height: @K_HEIGHT;
+  left: -1 * @K_WIDTH / 2;
+  top: -1 * @K_HEIGHT / 2;
+
+  border: 2px solid darken(@COLOR_GREEN, 25%);
+  background-color: @COLOR_GREEN;
+  
+  border-radius: @K_HEIGHT;
+  text-align: center;
+  color: #3f51b5;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 4px;
+}
+
+.green {
+  border: 2px solid darken(@COLOR_GREEN, 25%);
+  background-color: @COLOR_GREEN;
+}
+
+.orange {
+  border: 2px solid darken(@COLOR_ORANGE, 25%);
+  background-color: @COLOR_ORANGE;
+}
+
+.red {
+  border: 2px solid darken(@COLOR_RED, 25%);
+  background-color: @COLOR_RED;
+}
+
+.info {
+  position: absolute;
+  background: white;
+  top: 0;
+  left: @K_WIDTH * 3;
+  z-index: 999;
+  min-width: 100px;
+  min-height: 40px;
+  padding: 5px;
+  
+  text-align: left;
+  font-size: 12px;
+  font-weight: 100;
+  color: #333;
+}

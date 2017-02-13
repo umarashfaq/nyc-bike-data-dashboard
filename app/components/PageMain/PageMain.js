@@ -3,6 +3,7 @@ import styles from './PageMain.less'
 import globalStyles from '../common.less'
 import MUITheme from '../../../config/theme'
 import Page from '../Page/Page'
+import MapView from '../MapView/MapView'
 
 // libs
 import React from 'react'
@@ -19,9 +20,7 @@ export default class PageMain extends Page {
     return (
       <Provider store={store}>
         <div className={styles.root}>
-          <Paper zdepth={2} className={styles.contentContainer}>
-            Hello
-          </Paper>
+          <MapView markers={[]}/>
         </div>
       </Provider>
     )
