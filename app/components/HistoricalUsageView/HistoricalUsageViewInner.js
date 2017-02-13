@@ -8,7 +8,9 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'r
 
 const HistoricalUsageViewInner = props => {
   const {usage, stations, selectedStation, onChangeSelectedStation} = props
-  const lineChartData = usage.map((num_bikes_available, index) => ({name: `T - ${index}`, bikesAvailable: num_bikes_available}))
+  const lineChartData = usage
+    .map((num_bikes_available, index) => ({name: `T - ${index}`, bikesAvailable: num_bikes_available}))
+    .reverse()
   
   return <div className={styles.root}>
     <Paper>
